@@ -2,7 +2,6 @@ import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 
 import "./home.css";
 import Link from "next/link";
-import { Footer } from "./components/footer";
 
 import LogoAndName from "./components/LogoAndName";
 import Hero from "./components/Hero";
