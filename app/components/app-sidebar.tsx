@@ -16,6 +16,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useGlobalContextProvider } from "../types/contextApi";
 import LogoAndName from "./LogoAndName";
 import { menuItemType } from "../types/MenuItemType";
+import Link from "next/link";
+import { SignedOut } from "@clerk/nextjs";
+import LogoutSection from "./common/LogoutSection";
 //import { useRouter } from "next/navigation";
 
 export function AppSidebar() {
@@ -48,36 +51,39 @@ export function AppSidebar() {
                 <div className="mt-[180px]">
                   {menuItems.map((menuItem: menuItemType) => (
                     <React.Fragment key={`${menuItem.id}_${menuItem.name}`}>
-                      <SidebarMenuItem
-                        className=""
-                        id={`${menuItem.id}_${menuItem.name}`}
-                      >
-                        <SidebarMenuButton
-                          asChild
-                          className={`flex gap-2 items-center p-2 mb-3 w-40 text-center cursor-pointer  select-none rounded-sm ml-8  ${
-                            menuItem.isSelected
-                              ? "bg-primary text-white transition-all"
-                              : "hover:text-primary"
-                          }`}
+                      <Link href={menuItem.url}>
+                        <SidebarMenuItem
+                          className=""
+                          id={`${menuItem.id}_${menuItem.name}`}
                         >
-                          <div onClick={() => handleMenuItem(menuItem.name)}>
-                            <FontAwesomeIcon
-                              className=""
-                              icon={menuItem.icon}
-                              width={20}
-                              height={20}
-                            />
-                            <div className=" font-medium text-base">
-                              {menuItem.name}
+                          <SidebarMenuButton
+                            asChild
+                            className={`flex gap-2 items-center p-2 mb-3 w-40 text-center cursor-pointer  select-none rounded-sm ml-8  ${
+                              menuItem.isSelected
+                                ? "bg-primary text-white transition-all"
+                                : "hover:text-primary"
+                            }`}
+                          >
+                            <div onClick={() => handleMenuItem(menuItem.name)}>
+                              <FontAwesomeIcon
+                                className=""
+                                icon={menuItem.icon}
+                                width={20}
+                                height={20}
+                              />
+                              <div className=" font-medium text-base">
+                                {menuItem.name}
+                              </div>
                             </div>
-                          </div>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      </Link>
                     </React.Fragment>
                   ))}
                 </div>
               </SidebarMenu>
-              {/* <LogoutSection /> */}
+
+              <LogoutSection />
             </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>

@@ -4,6 +4,7 @@ import AllHabitsSearchBar from "./AllHabitsSearchBar";
 import DarkMode from "./DarkMode";
 import { useUser, UserButton } from "@clerk/clerk-react";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import UserProfile from "@/app/components/common/UserProfile";
 
 const AllHabitsTopbar = () => {
   const { user } = useUser();
@@ -40,6 +41,9 @@ const AllHabitsTopbar = () => {
         <div className="w-[50%] max-md:w-[80%] flex gap-3 justify-between">
           <AllHabitsSearchBar />
           <DarkMode />
+          <div className=" gap-4 max-lg:hidden flex">
+            <UserProfile />
+          </div>
         </div>
       </div>
     </>

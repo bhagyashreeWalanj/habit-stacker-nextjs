@@ -64,10 +64,34 @@ const GlobalContext = createContext<GlobalContextType>({
 
 function GlobalContextProvider({ children }: { children: React.ReactNode }) {
   const [menuItems, setMenuItems] = useState<menuItemType[]>([
-    { id: 22, name: "All Habits", isSelected: true, icon: faRectangleList },
-    { id: 23, name: "Workout", isSelected: false, icon: faDumbbell },
-    { id: 24, name: "Statistics", isSelected: false, icon: faChartSimple },
-    { id: 25, name: "Areas", isSelected: false, icon: faLayerGroup },
+    {
+      id: 22,
+      name: "All Habits",
+      isSelected: true,
+      icon: faRectangleList,
+      url: "/dashboard",
+    },
+    {
+      id: 23,
+      name: "Workout",
+      isSelected: false,
+      icon: faDumbbell,
+      url: "/workout",
+    },
+    {
+      id: 24,
+      name: "Statistics",
+      isSelected: false,
+      icon: faChartSimple,
+      url: "/statistics",
+    },
+    {
+      id: 25,
+      name: "Areas",
+      isSelected: false,
+      icon: faLayerGroup,
+      url: "/areas",
+    },
   ]);
 
   const [darkModeItems, setDarkModeItems] = useState<DarkModeItem[]>([
