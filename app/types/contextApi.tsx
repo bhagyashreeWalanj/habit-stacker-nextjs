@@ -74,10 +74,10 @@ function GlobalContextProvider({ children }: { children: React.ReactNode }) {
     },
     {
       id: 23,
-      name: "Workout",
+      name: "Health",
       isSelected: false,
       icon: faDumbbell,
-      url: "/workout",
+      url: "/health",
     },
     {
       id: 24,

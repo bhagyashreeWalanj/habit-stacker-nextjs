@@ -5,7 +5,7 @@ import SleepChart from "./charts/sleep-chart";
 import WeightChart from "./charts/weight-chart";
 import WaterChart from "./charts/water-chart";
 
-const Workout = () => {
+const Health = () => {
   return (
     <div className="max-lg:flex-col w-full flex flex-row gap-0 bg-white dark:bg-slate-800">
       <div className="flex-col flex-grow m-3">
@@ -20,4 +20,4 @@ const Workout = () => {
   );
 };
 
-export default Workout;
+export default Health;
