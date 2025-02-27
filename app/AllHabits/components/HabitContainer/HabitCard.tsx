@@ -13,7 +13,7 @@ const HabitCard = ({ allHabits }: { allHabits: HabitType[] }) => {
       {allHabits.map((habit: HabitType) => {
         return (
           <div
-            className="flex p-3 items-center justify-between"
+            className="flex p-0 items-center justify-between"
             key={`${habit._id}_${habit.name}`}
           >
             {habit.completedDays.some(

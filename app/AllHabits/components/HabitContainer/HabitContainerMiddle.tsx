@@ -8,6 +8,7 @@ import { getCurrentDayName } from "@/utils/DateFunctions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFlagCheckered } from "@fortawesome/free-solid-svg-icons";
 import { AnimatePresence } from "framer-motion";
+import MainCalendar from "../RightSideBar/MainCalendar";
 
 const HabitContainerMiddle = () => {
   const {
@@ -63,29 +64,38 @@ const HabitContainerMiddle = () => {
 
   return (
     <div className="p-3">
-      {allFilteredHabits.length === 0 ? (
-        // <HabitsEmptyPlaceHolder />
-        "No Habits today"
-      ) : (
-        <>
-          {isAllHabitsCompleted && (
-            <div className="flex justify-center items-center p-5 flex-col">
-              <FontAwesomeIcon
-                icon={faFlagCheckered}
-                className="text-4xl text-gray-400"
-              />
-              <span className="text-[16px] text-gray-400 w-64 text-center mt-6">
-                {"Great Job !!! You've completed all your habits for this day!"}
-              </span>
-            </div>
+      <div className="max-lg:flex-col w-full flex flex-row gap-2 bg-white dark:bg-darkBackground">
+        <div className="w-full">
+          {allFilteredHabits.length === 0 ? (
+            // <HabitsEmptyPlaceHolder />
+            "No Habits today"
+          ) : (
+            <>
+              {isAllHabitsCompleted && (
+                <div className="flex justify-center items-center p-5 flex-col">
+                  <FontAwesomeIcon
+                    icon={faFlagCheckered}
+                    className="text-4xl text-gray-400"
+                  />
+                  <span className="text-[16px] text-gray-400 w-64 text-center mt-6">
+                    {
+                      "Great Job !!! You've completed all your habits for this day!"
+                    }
+                  </span>
+                </div>
+              )}
+              <AnimatePresence>
+                <div className="bg-white dark:bg-darkBackground rounded-md">
+                  {<HabitCard allHabits={allFilteredHabits} />}
+                </div>
+              </AnimatePresence>
+            </>
           )}
-          <AnimatePresence>
-            <div className="bg-white dark:bg-darkBackground rounded-md">
-              {<HabitCard allHabits={allFilteredHabits} />}
-            </div>
-          </AnimatePresence>
-        </>
-      )}
+        </div>
+        <div className="">
+          <MainCalendar />
+        </div>
+      </div>
     </div>
   );
 };
