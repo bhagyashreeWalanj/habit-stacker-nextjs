@@ -15,6 +15,7 @@ import {
   faGraduationCap,
   faBriefcaseMedical,
   faHeart,
+  faHome,
 } from "@fortawesome/free-solid-svg-icons";
 import { DarkModeItem } from "./DarkModeTypes";
 import { AreaType, HabitType } from "./GlobalTypes";
@@ -66,9 +67,9 @@ function GlobalContextProvider({ children }: { children: React.ReactNode }) {
   const [menuItems, setMenuItems] = useState<menuItemType[]>([
     {
       id: 22,
-      name: "All Habits",
+      name: "Home",
       isSelected: true,
-      icon: faRectangleList,
+      icon: faHome,
       url: "/dashboard",
     },
     {
@@ -85,13 +86,13 @@ function GlobalContextProvider({ children }: { children: React.ReactNode }) {
       icon: faChartSimple,
       url: "/statistics",
     },
-    {
-      id: 25,
-      name: "Areas",
-      isSelected: false,
-      icon: faLayerGroup,
-      url: "/areas",
-    },
+    // {
+    //   id: 25,
+    //   name: "Areas",
+    //   isSelected: false,
+    //   icon: faLayerGroup,
+    //   url: "/areas",
+    // },
   ]);
 
   const [darkModeItems, setDarkModeItems] = useState<DarkModeItem[]>([

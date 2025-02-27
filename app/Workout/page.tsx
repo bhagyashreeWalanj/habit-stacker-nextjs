@@ -1,8 +1,9 @@
 import React from "react";
 import StepChart from "./charts/chart-radial-shape";
-import CalorieChart from "./charts/calorie-chart";
+// import CalorieChart from "./charts/calorie-chart";
 import SleepChart from "./charts/sleep-chart";
 import WeightChart from "./charts/weight-chart";
+import WaterChart from "./charts/water-chart";
 
 const Workout = () => {
   return (
@@ -10,7 +11,7 @@ const Workout = () => {
       <div className="flex-col flex-grow m-3">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-3 mx-3 ">
           <StepChart />
-          <CalorieChart />
+          <WaterChart />
           <SleepChart />
           <WeightChart />
         </div>

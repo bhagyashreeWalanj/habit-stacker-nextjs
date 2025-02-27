@@ -17,15 +17,14 @@ import { useGlobalContextProvider } from "../types/contextApi";
 import LogoAndName from "./LogoAndName";
 import { menuItemType } from "../types/MenuItemType";
 import Link from "next/link";
-import { SignedOut } from "@clerk/nextjs";
 import LogoutSection from "./common/LogoutSection";
-//import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export function AppSidebar() {
   const { menuItemsObject } = useGlobalContextProvider();
   const { menuItems, setMenuItems } = menuItemsObject;
-  //const router = useRouter();
-
+  const pathname = usePathname();
+  console.log("pathname", pathname);
   function handleMenuItem(menu: string) {
     const copyMenuItems = menuItems.map((menuItem) => {
       if (menu === menuItem.name) {
@@ -34,7 +33,6 @@ export function AppSidebar() {
         return { ...menuItem, isSelected: false };
       }
     });
-    // router.push(`/${menu}`);
     setMenuItems(copyMenuItems);
   }
 
@@ -58,8 +56,9 @@ export function AppSidebar() {
                         >
                           <SidebarMenuButton
                             asChild
+                            //isActive={pathname === menuItem.url}
                             className={`flex gap-2 items-center p-2 mb-3 w-40 text-center cursor-pointer  select-none rounded-sm ml-8  ${
-                              menuItem.isSelected
+                              pathname === menuItem.url
                                 ? "bg-primary text-white transition-all"
                                 : "hover:text-primary"
                             }`}

@@ -9,10 +9,9 @@ import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://clerk-next-app.vercel.app/"),
-  title: "Next.js Clerk Template",
+  title: "Habit Stacker",
   description:
-    "A simple and powerful Next.js template featuring authentication and user management powered by Clerk.",
-  openGraph: { images: ["/og.png"] },
+    "A simple and powerful Next.js Habit tracker featuring authentication and habit management.",
 };
 
 const fontPoppins = Poppins({
@@ -30,6 +29,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
+        <head>
+          <link rel="icon" href="/favicon.ico" sizes="any" />
+        </head>
         <GlobalContextProvider>
           <body
             className={cn(
